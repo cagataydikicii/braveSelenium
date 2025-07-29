@@ -1,0 +1,18 @@
+{
+  "search_queries": [
+    "şişli çilingir"
+  ],
+  "mobile_proxies": [
+    ""
+  ],
+  "worker_count": 5,
+  "clicks_per_ad": 1,
+  "min_wait_time": 3,
+  "max_wait_time": 8,
+  "headless_mode": false,
+  "priority_sites": [],
+  "blocked_sites": [],
+  "enable_site_filtering": true,
+  "location_injection_enabled": true,
+  "selected_district": "Şişli"
+}
