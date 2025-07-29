@@ -3,49 +3,37 @@
 Google Reklam Tıklama Botu Yapılandırması - UI tarafından otomatik oluşturuldu
 """
 
-# Arama sorguları listesi
-SEARCH_QUERIES = ['şişli çilingir']
+SEARCH_QUERIES = []
 
-# Mobil proxy listesi
-MOBILE_PROXIES = ['WTi1QEkCY8:B5v0JIzhXI@rotate.saglamproxy.net:3508']
+MOBILE_PROXIES = []
 
-# Site filtreleme ayarları
 PRIORITY_SITES = []
 BLOCKED_SITES = []
 ENABLE_SITE_FILTERING = True
 
-# Worker sayısı
 WORKER_COUNT = 5
 
-# Her reklama kaç kez tıklanacak
 CLICKS_PER_AD = 1
 
-# Tıklamalar arası bekleme süreleri (saniye)
 MIN_WAIT_TIME = 3
 MAX_WAIT_TIME = 8
 
-# Reklamlar arası bekleme süreleri (saniye)
 MIN_AD_WAIT = 5
 MAX_AD_WAIT = 10
 
-# Sayfa yenileme sıklığı (kaç tıklamada bir)
 REFRESH_FREQUENCY = 10
 
-# Loglama seviyesi
 LOG_LEVEL = "INFO"
 
-# Chrome ayarları
 CHROME_OPTIONS = {
     "headless": False,
     "disable_images": True,
     "disable_css": True,
 }
 
-# Coğrafi konum ayarları
 LOCATION_INJECTION_ENABLED = True
 SELECTED_DISTRICT = "Şişli"
 
-# İstanbul ilçe koordinatları
 ISTANBUL_DISTRICTS = {
     "Kadıköy": {"lat": 40.9828, "lng": 29.0329, "name": "Kadıköy"},
     "Beşiktaş": {"lat": 41.0422, "lng": 29.0088, "name": "Beşiktaş"},
@@ -69,15 +57,12 @@ ISTANBUL_DISTRICTS = {
     "Beylikdüzü": {"lat": 41.0028, "lng": 28.6478, "name": "Beylikdüzü"}
 }
 
-# Mobil cihaz simülasyonu ayarları
 MOBILE_DEVICE = {
     "width": 375,
     "height": 812, 
     "pixelRatio": 3.0
 }
 
-# User Agent döngüsü aktif/pasif
 ROTATE_USER_AGENT = True
 
-# Proxy döngüsü aktif/pasif
 ROTATE_PROXY = True
