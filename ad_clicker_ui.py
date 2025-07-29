@@ -16,7 +16,7 @@ import logging
 class AdClickerUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("🚀 Paralel Reklam Tıklama Sistemi - Kontrol Paneli")
+        self.root.title("Kontrol Paneli")
         self.root.geometry("1200x800")
         self.root.configure(bg='#f0f0f0')
         
@@ -85,7 +85,7 @@ class AdClickerUI:
         control_frame = ttk.Frame(self.notebook)
         self.notebook.add(control_frame, text="🎮 Kontrol Paneli")
         
-        info_frame = ttk.LabelFrame(control_frame, text="📊 Sistem Durumu", padding=10)
+        info_frame = ttk.LabelFrame(control_frame, text="Sistem Durumu", padding=10)
         info_frame.pack(fill='x', padx=10, pady=5)
         
         self.status_label = ttk.Label(info_frame, text="🔴 Durduruldu", font=('Arial', 14, 'bold'))
@@ -97,7 +97,7 @@ class AdClickerUI:
         button_frame = ttk.Frame(control_frame)
         button_frame.pack(fill='x', padx=10, pady=10)
         
-        self.start_button = ttk.Button(button_frame, text="🚀 Sistemi Başlat", 
+        self.start_button = ttk.Button(button_frame, text=" Sistemi Başlat", 
                                      command=self.start_system, style="Accent.TButton")
         self.start_button.pack(side='left', padx=5)
         
@@ -109,7 +109,7 @@ class AdClickerUI:
                                        command=self.restart_system, state='disabled')
         self.restart_button.pack(side='left', padx=5)
         
-        quick_frame = ttk.LabelFrame(control_frame, text="⚡ Hızlı Ayarlar", padding=10)
+        quick_frame = ttk.LabelFrame(control_frame, text=" Hızlı Ayarlar", padding=10)
         quick_frame.pack(fill='x', padx=10, pady=5)
         
         ttk.Label(quick_frame, text="Worker Sayısı:").grid(row=0, column=0, sticky='w', padx=5)
@@ -185,14 +185,14 @@ class AdClickerUI:
         max_wait_spin = ttk.Spinbox(wait_frame2, from_=1, to=60, textvariable=self.max_wait_var, width=5)
         max_wait_spin.pack(side='right')
         
-        location_frame = ttk.LabelFrame(settings_frame, text="📍 Coğrafi Konum Ayarları", padding=10)
+        location_frame = ttk.LabelFrame(settings_frame, text=" Coğrafi Konum Ayarları", padding=10)
         location_frame.pack(fill='x', padx=10, pady=5)
         
         location_status_frame = ttk.Frame(location_frame)
         location_status_frame.pack(fill='x', pady=2)
         
         self.location_enabled_var = tk.BooleanVar(value=self.settings.get('location_injection_enabled', True))
-        location_check = ttk.Checkbutton(location_status_frame, text="🌍 Coğrafi konum injection etkinleştir", 
+        location_check = ttk.Checkbutton(location_status_frame, text=" Coğrafi konum injection etkinleştir", 
                                        variable=self.location_enabled_var,
                                        command=self.on_location_toggle)
         location_check.pack(anchor='w')
@@ -247,9 +247,9 @@ class AdClickerUI:
     def create_site_filter_tab(self):
         """Site filtreleme tab'ı"""
         filter_frame = ttk.Frame(self.notebook)
-        self.notebook.add(filter_frame, text="🎯 Site Filtreleri")
+        self.notebook.add(filter_frame, text=" Site Filtreleri")
         
-        status_frame = ttk.LabelFrame(filter_frame, text="⚙️ Filtreleme Durumu", padding=10)
+        status_frame = ttk.LabelFrame(filter_frame, text=" Filtreleme Durumu", padding=10)
         status_frame.pack(fill='x', padx=10, pady=5)
         
         self.filtering_var = tk.BooleanVar(value=self.settings.get('enable_site_filtering', True))
@@ -266,7 +266,7 @@ class AdClickerUI:
         main_container = ttk.Frame(filter_frame)
         main_container.pack(fill='both', expand=True, padx=10, pady=5)
         
-        priority_frame = ttk.LabelFrame(main_container, text="⭐ Öncelik Verilecek Siteler", padding=10)
+        priority_frame = ttk.LabelFrame(main_container, text=" Öncelik Verilecek Siteler", padding=10)
         priority_frame.pack(side='left', fill='both', expand=True, padx=(0, 5))
         
         priority_add_frame = ttk.Frame(priority_frame)
@@ -297,7 +297,7 @@ class AdClickerUI:
         ttk.Button(priority_buttons, text="🔼 Yukarı", command=lambda: self.move_priority_site(-1)).pack(side='left', padx=2)
         ttk.Button(priority_buttons, text="🔽 Aşağı", command=lambda: self.move_priority_site(1)).pack(side='left', padx=2)
         
-        blocked_frame = ttk.LabelFrame(main_container, text="🚫 Engellenen Siteler", padding=10)
+        blocked_frame = ttk.LabelFrame(main_container, text="Engellenen Siteler", padding=10)
         blocked_frame.pack(side='right', fill='both', expand=True, padx=(5, 0))
         
         blocked_add_frame = ttk.Frame(blocked_frame)
@@ -326,7 +326,7 @@ class AdClickerUI:
         ttk.Button(blocked_buttons, text="🗑️ Sil", command=self.remove_blocked_site).pack(side='left', padx=2)
         ttk.Button(blocked_buttons, text="📝 Düzenle", command=self.edit_blocked_site).pack(side='left', padx=2)
         
-        quick_add_frame = ttk.LabelFrame(filter_frame, text="⚡ Hızlı Ekleme", padding=10)
+        quick_add_frame = ttk.LabelFrame(filter_frame, text=" Hızlı Ekleme", padding=10)
         quick_add_frame.pack(fill='x', padx=10, pady=5)
         
         common_frame = ttk.Frame(quick_add_frame)
@@ -336,16 +336,16 @@ class AdClickerUI:
         
         common_blocked = ["facebook.com", "twitter.com", "instagram.com", "youtube.com", "linkedin.com", "tiktok.com"]
         for site in common_blocked:
-            ttk.Button(common_frame, text=f"🚫 {site}", 
+            ttk.Button(common_frame, text=f" {site}", 
                      command=lambda s=site: self.quick_add_blocked(s),
                      style="small.TButton").pack(side='left', padx=2)
         
         file_frame = ttk.Frame(quick_add_frame)
         file_frame.pack(fill='x', pady=5)
         
-        ttk.Button(file_frame, text="📁 Dosyadan Yükle (Öncelik)", command=self.load_priority_from_file).pack(side='left', padx=2)
-        ttk.Button(file_frame, text="📁 Dosyadan Yükle (Engellenen)", command=self.load_blocked_from_file).pack(side='left', padx=2)
-        ttk.Button(file_frame, text="💾 Listeleri Kaydet", command=self.save_site_filters).pack(side='left', padx=2)
+        ttk.Button(file_frame, text=" Dosyadan Yükle (Öncelik)", command=self.load_priority_from_file).pack(side='left', padx=2)
+        ttk.Button(file_frame, text=" Dosyadan Yükle (Engellenen)", command=self.load_blocked_from_file).pack(side='left', padx=2)
+        ttk.Button(file_frame, text=" Listeleri Kaydet", command=self.save_site_filters).pack(side='left', padx=2)
         
         self.refresh_site_lists()
         
@@ -373,23 +373,23 @@ class AdClickerUI:
         proxy_buttons = ttk.Frame(proxy_list_frame)
         proxy_buttons.pack(fill='x', pady=5)
         
-        ttk.Button(proxy_buttons, text="🗑️ Seçili Sil", command=self.remove_proxy).pack(side='left', padx=2)
-        ttk.Button(proxy_buttons, text="🧪 Test Et", command=self.test_proxy).pack(side='left', padx=2)
-        ttk.Button(proxy_buttons, text="📁 Dosyadan Yükle", command=self.load_proxies_from_file).pack(side='left', padx=2)
-        ttk.Button(proxy_buttons, text="💾 Dosyaya Kaydet", command=self.save_proxies_to_file).pack(side='left', padx=2)
+        ttk.Button(proxy_buttons, text=" Seçili Sil", command=self.remove_proxy).pack(side='left', padx=2)
+        ttk.Button(proxy_buttons, text=" Test Et", command=self.test_proxy).pack(side='left', padx=2)
+        ttk.Button(proxy_buttons, text=" Dosyadan Yükle", command=self.load_proxies_from_file).pack(side='left', padx=2)
+        ttk.Button(proxy_buttons, text=" Dosyaya Kaydet", command=self.save_proxies_to_file).pack(side='left', padx=2)
         
         self.refresh_proxy_list()
         
     def create_logs_tab(self):
         """Log görüntüleme tab'ı"""
         logs_frame = ttk.Frame(self.notebook)
-        self.notebook.add(logs_frame, text="📜 Loglar")
+        self.notebook.add(logs_frame, text=" Loglar")
         
         log_controls = ttk.Frame(logs_frame)
         log_controls.pack(fill='x', padx=10, pady=5)
         
-        ttk.Button(log_controls, text="🗑️ Logları Temizle", command=self.clear_logs).pack(side='left', padx=5)
-        ttk.Button(log_controls, text="💾 Logları Kaydet", command=self.save_logs).pack(side='left', padx=5)
+        ttk.Button(log_controls, text=" Logları Temizle", command=self.clear_logs).pack(side='left', padx=5)
+        ttk.Button(log_controls, text=" Logları Kaydet", command=self.save_logs).pack(side='left', padx=5)
         
         self.auto_scroll_var = tk.BooleanVar(value=True)
         ttk.Checkbutton(log_controls, text="Otomatik Kaydırma", variable=self.auto_scroll_var).pack(side='right', padx=5)
@@ -405,10 +405,10 @@ class AdClickerUI:
     def create_stats_tab(self):
         """İstatistikler tab'ı"""
         stats_frame = ttk.Frame(self.notebook)
-        self.notebook.add(stats_frame, text="📊 Detaylı İstatistikler")
+        self.notebook.add(stats_frame, text=" Detaylı İstatistikler")
         
 
-        ttk.Label(stats_frame, text="📈 Detaylı istatistikler yakında...", 
+        ttk.Label(stats_frame, text=" Detaylı istatistikler yakında...", 
                  font=('Arial', 14)).pack(expand=True)
         
     def setup_logging(self):
@@ -481,9 +481,9 @@ class AdClickerUI:
             lat = district_info['lat']
             lng = district_info['lng']
             name = district_info['name']
-            coord_text = f"📍 {name} - Enlem: {lat}, Boylam: {lng}"
+            coord_text = f" {name} - Enlem: {lat}, Boylam: {lng}"
         else:
-            coord_text = "📍 Koordinat bilgisi bulunamadı"
+            coord_text = " Koordinat bilgisi bulunamadı"
         
         if hasattr(self, 'coord_label'):
             self.coord_label.config(text=coord_text)
@@ -867,11 +867,11 @@ ROTATE_PROXY = True
     def start_system(self):
         """Sistemi başlat"""
         try:
-            self.ui_logger.info("🔄 Sistem başlatılıyor...")
+            self.ui_logger.info(" Sistem başlatılıyor...")
             
             # Ayarları kaydet ve config dosyasını güncelle
             self.save_current_settings()
-            self.ui_logger.info("✅ Ayarlar kaydedildi")
+            self.ui_logger.info(" Ayarlar kaydedildi")
             
             if not self.update_config_file():
                 error_msg = "Config dosyası güncellenemedi!"
@@ -913,7 +913,7 @@ ROTATE_PROXY = True
             
             self.is_running = True
             self.update_ui_state()
-            self.ui_logger.info("🚀 Sistem başlatıldı! Process ID: " + str(self.process.pid))
+            self.ui_logger.info(" Sistem başlatıldı! Process ID: " + str(self.process.pid))
             
             self.start_process_reader()
             
@@ -1003,12 +1003,12 @@ ROTATE_PROXY = True
                 parent = psutil.Process(self.process.pid)
                 children = parent.children(recursive=True)
                 
-                self.ui_logger.info(f"🔍 {len(children)} child process bulundu")
+                self.ui_logger.info(f" {len(children)} child process bulundu")
                 
                 for child in children:
                     try:
                         child.terminate()
-                        self.ui_logger.info(f"🗑️ Child process kapatıldı (PID: {child.pid})")
+                        self.ui_logger.info(f" Child process kapatıldı (PID: {child.pid})")
                     except (psutil.NoSuchProcess, psutil.AccessDenied):
                         pass
                 
@@ -1046,12 +1046,12 @@ ROTATE_PROXY = True
                     pass
                     
             if killed_count > 0:
-                self.ui_logger.info(f"✅ {killed_count} Python worker zorla kapatıldı")
+                self.ui_logger.info(f" {killed_count} Python worker zorla kapatıldı")
             else:
-                self.ui_logger.info("ℹ️ Kapatılacak Python worker bulunamadı")
+                self.ui_logger.info(" Kapatılacak Python worker bulunamadı")
                 
         except ImportError:
-            self.ui_logger.warning("⚠️ psutil bulunamadı, manuel Python worker kapatma yapılıyor")
+            self.ui_logger.warning(" psutil bulunamadı, manuel Python worker kapatma yapılıyor")
             try:
                 import subprocess
                 result = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq python.exe', '/FO', 'CSV'], 
@@ -1144,7 +1144,7 @@ ROTATE_PROXY = True
         self.is_running = False
         self.process = None
         self.update_ui_state()
-        self.ui_logger.warning("⚠️ Process sonlandı - Sistem durduruldu")
+        self.ui_logger.warning(" Process sonlandı - Sistem durduruldu")
 
 def main():
     """Ana fonksiyon"""
